@@ -6,7 +6,8 @@ import cors from 'cors';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import 'express-async-errors';
-import tweetsRoute from './router/tweets.js'
+import tweetsRoute from './router/tweets.js';
+import authRoute from './router/auth.js'
 
 // 앱 생성
 const app = express();
@@ -19,6 +20,7 @@ app.use(helmet())
 
 // url 라우팅
 app.use('/tweets', tweetsRoute);
+app.use('/auth', authRoute);
 
 // 등록 안 된 url 처리
 app.use((req, res, next) => {   // 스니펫 만들기 - ctrl + shift + p > configure snippets > javascript.json
